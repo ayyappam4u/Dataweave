@@ -1,0 +1,23 @@
+{
+  "location": {
+    "New York": {
+      "department": [
+        {
+          "Sales": [
+            "Alice",
+            "Charlie"
+          ]
+        }
+      ]
+    },
+    "Chicago": {
+      "department": [
+        {
+          "Marketing": [
+            "Bob"
+          ]
+        }
+      ]
+    }
+  }
+}
