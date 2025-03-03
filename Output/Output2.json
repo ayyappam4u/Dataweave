@@ -1,0 +1,17 @@
+{
+  "dog": [
+    "Labrador Retriever",
+    "German Shepherd",
+    "Golden Retriever"
+  ],
+  "cat": [
+    "Domestic Shortair",
+    "Siamese",
+    "Maine Coon"
+  ],
+  "bird": [
+    "Parrot",
+    "Canary",
+    "Finch"
+  ]
+}
