@@ -1,0 +1,24 @@
+{
+    "members": [
+        {
+            "name": "Surya",
+            "dob": "20/07/2000"
+        },
+        {
+            "name": "Varma",
+            "dob": "20/06/2002"
+        },
+        {
+            "name": "Priyanshu",
+            "dob": "20/06/1900"
+        },
+        {
+            "name": "Jatin",
+            "dob": "25/11/1992"
+        },
+        {
+            "name": "Manish",
+            "dob": "13/11/1994"
+        }
+    ]
+}
