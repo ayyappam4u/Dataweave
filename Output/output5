@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<EmployeeDetails>
+  <Employee.name>Saurabh</Employee.name>
+  <Employee.address.city>Mumbai</Employee.address.city>
+  <Employee.address.country>India</Employee.address.country>
+  <Employee.skills>mule</Employee.skills>
+  <Employee.skills>java</Employee.skills>
+</EmployeeDetails>
