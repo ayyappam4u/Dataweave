@@ -1,0 +1,10 @@
+{
+    "Employee":{
+        "name": "Saurabh",
+        "address": {
+            "city": "Mumbai",
+            "country": "India"
+        },
+        "skills": ["mule", "java"]
+    }
+}
