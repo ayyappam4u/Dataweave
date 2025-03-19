@@ -143,5 +143,24 @@ a orderBy ($[3 to 6]) groupBy ($[3 to 6]) mapObject ({
     "$$": $ map ((item, index) -> "ORG" ++ item[3 to -1] as Date{format:"yyyyMMdd"} )orderBy ($ )
 } )
 ======================================================================
+Input:
 
-  
+[{"Product": "Air Purifier","Location": "Delhi","order": [{"quarter": "1","units": 1200,"sales": 3000},{"quarter": "2","units": 1680,"sales": 3300},{"quarter": "3","units": 1100,"sales": 4200},{"quarter": "4","units": 2000,"sales": 1000}]},{"Product": "HairDryer","Location": "Hyderabad","order": [{"quarter": "1","units": 1000,"sales": 3400},{"quarter": "2","units": 800,"sales": 2000},{"quarter": "3","units": 1500,"sales": 4000},{"quarter": "4","units": 1560,"sales": 4600}]},{"Product": "Vaccum Cleaner","Location": "Delhi","order": [{"quarter": "1","units": 1000,"sales": 4500},{"quarter": "2","units": 1300,"sales": 4800},{"quarter": "3","units": 1450,"sales": 3000},{"quarter": "4","units": 540,"sales": 1300}]}]
+*******************************
+Script: 
+payload groupBy ($.Location) pluck ((value, key, index) -> {
+  Location: key,
+  UnitsOrdered: sum((value.order) flatMap ((item, index) -> (item.units))),
+  Stock: value groupBy ($.Product) pluck ((value1, key1, index) -> {
+    (key1): {
+      Avgstock: avg(value1.order flatMap ((item, index) -> (item.units))),
+      Avgsales: avg(value1.order flatMap ((item, index) -> (item.sales)))
+    }
+  })
+})
+****************************
+output:
+
+[{"Location": "Delhi","UnitsOrdered": 10270,"Stock": [{"Air Purifier": {"Avgstock": 1495,"Avgsales": 2875}},{"Vaccum Cleaner": {"Avgstock": 1072.5,"Avgsales": 3400}}]},{"Location": "Hyderabad","UnitsOrdered": 4860,"Stock": [{"HairDryer": {"Avgstock": 1215,"Avgsales": 3500}}]}]
+
+==============================================================================================================
