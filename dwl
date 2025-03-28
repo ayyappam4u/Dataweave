@@ -164,3 +164,35 @@ output:
 [{"Location": "Delhi","UnitsOrdered": 10270,"Stock": [{"Air Purifier": {"Avgstock": 1495,"Avgsales": 2875}},{"Vaccum Cleaner": {"Avgstock": 1072.5,"Avgsales": 3400}}]},{"Location": "Hyderabad","UnitsOrdered": 4860,"Stock": [{"HairDryer": {"Avgstock": 1215,"Avgsales": 3500}}]}]
 
 ==============================================================================================================
+Input: 
+"yyyyMMddHHMMss"
+
+Script:
+
+var chars = payload splitBy  "" reduce ((item, acc = { currentGroup: "", groups: [] }) -> 
+        if (acc.currentGroup == "" or item == acc.currentGroup[0]) 
+            { 
+                currentGroup: acc.currentGroup ++ item, 
+                groups: acc.groups
+            }
+        else 
+            { 
+                currentGroup: item, 
+                groups: (acc.groups + [acc.currentGroup]) 
+            }
+    )
+
+
+---
+(chars.groups + [chars.currentGroup]) map ((item, index) ->{
+
+(item[0][0]): sizeOf(item[0])
+
+} )
+
+********************************************************
+Output:
+[{"y": 4},{"M": 2},{"d": 2},{"H": 2},{"M": 2},{"s": 2}]
+-------------------------------------------------------------------------------------------------
+
+
