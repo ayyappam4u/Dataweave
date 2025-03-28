@@ -190,6 +190,13 @@ var chars = payload splitBy  "" reduce ((item, acc = { currentGroup: "", groups:
 
 } )
 
+or
+
+payload splitBy  /(?<=(.))(?!\1)/ map ((item, index) -> {
+
+  (item[0]): sizeOf(item)
+} )
+
 ********************************************************
 Output:
 [{"y": 4},{"M": 2},{"d": 2},{"H": 2},{"M": 2},{"s": 2}]
