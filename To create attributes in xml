@@ -1,0 +1,13 @@
+%dw 2.0
+
+ns ns0 http://Atlas.Schemas.Policy/1.0
+output application/xml
+---
+{
+    ns0#product @(
+        'ns1:sku': "P-1001",
+        'ns1:category': "electronics"
+    ): {
+        name: "Smartphone"
+    }
+}
