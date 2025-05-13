@@ -17,3 +17,12 @@ payload mapObject {
     ns0#session @((payload.session.@)):($)
     }
 =====================================
+{
+    ns0#session @(
+        id: payload.session.@id,
+        ODSId: payload.session.@ODSId,
+        charge: payload.session.@charge,
+        count: payload.session.@count
+    ):payload.session
+}
+=========================
