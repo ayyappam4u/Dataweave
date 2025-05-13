@@ -11,3 +11,9 @@ output application/xml
         name: "Smartphone"
     }
 }
+===================
+dynamically
+payload mapObject {
+    ns0#session @((payload.session.@)):($)
+    }
+=====================================
